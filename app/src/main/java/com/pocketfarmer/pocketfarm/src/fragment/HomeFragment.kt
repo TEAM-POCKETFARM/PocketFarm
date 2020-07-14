@@ -20,12 +20,12 @@ class HomeFragment(override val layoutId: Int = R.layout.fragment_home):
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val contextThemeWrapper = ContextThemeWrapper(activity,
-            R.style.AppTheme
-        );
-        val localInflater = inflater.cloneInContext(contextThemeWrapper);
+//        val contextThemeWrapper = ContextThemeWrapper(activity,
+//            R.style.AppTheme
+//        );
+//        val localInflater = inflater.cloneInContext(contextThemeWrapper);
 
-        return super.onCreateView(localInflater, container, savedInstanceState)
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun getViewModel(): HomeViewModel

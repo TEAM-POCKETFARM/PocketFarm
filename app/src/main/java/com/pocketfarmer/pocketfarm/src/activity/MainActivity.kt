@@ -1,8 +1,8 @@
 package com.pocketfarmer.pocketfarm.src.activity
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import com.pocketfarmer.pocketfarm.src.base.BaseActivity
@@ -10,6 +10,7 @@ import com.pocketfarmer.pocketfarm.R
 import com.pocketfarmer.pocketfarm.databinding.ActivityMainBinding
 import com.pocketfarmer.pocketfarm.setupWithNavController
 import com.pocketfarmer.pocketfarm.src.viewmodel.MainViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity (override val layoutId: Int = R.layout.activity_main)
     : BaseActivity<ActivityMainBinding, MainViewModel>() {
@@ -21,6 +22,13 @@ class MainActivity (override val layoutId: Int = R.layout.activity_main)
 
     override fun initView(savedInstanceState: Bundle?) {
         setupBottomNavigationBar()
+        main_toolbar.inflateMenu(R.menu.menu_toolbar)
+        setSupportActionBar(main_toolbar)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_toolbar, menu)
+        return true
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -37,18 +45,13 @@ class MainActivity (override val layoutId: Int = R.layout.activity_main)
         )
 
         // Setup the bottom navigation view with a list of navigation graphs
-        val controller = binding.bnvMain.setupWithNavController(
+        val controller = binding.mainBnv.setupWithNavController(
             navGraphIds = navGraphIds,
             fragmentManager = supportFragmentManager,
-            containerId = R.id.nav_container_main,
+            containerId = R.id.main_nav_container,
             intent = intent
         )
 
-        // Whenever the selected controller changes, setup the action bar.
-        controller.observe(this, Observer { navController ->
-            //setupActionBarWithNavController(this, navController)
-            //NavigationUI.setupWithNavController(binding.bnvMain, navController)
-        })
         currentNavController = controller
     }
 
