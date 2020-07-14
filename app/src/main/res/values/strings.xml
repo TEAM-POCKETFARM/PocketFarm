@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PocketFarm</string>
+    <string name="loading">로딩중입니다…</string>
+    <string name="network_error">네트워크 연결 상태를 확인해주세요</string>
+</resources>

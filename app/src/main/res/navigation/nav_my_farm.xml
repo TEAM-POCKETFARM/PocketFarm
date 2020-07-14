@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_my_farm"
+    app:startDestination="@id/fg_my_farm">
+    <fragment
+        android:id="@+id/fg_my_farm"
+        android:name="com.pocketfarmer.pocketfarm.src.fragment.MyFarmFragment"
+        tools:layout="@layout/fragment_category"/>
+</navigation>
