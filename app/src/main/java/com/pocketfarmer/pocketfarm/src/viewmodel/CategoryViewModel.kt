@@ -1,7 +1,8 @@
 package com.pocketfarmer.pocketfarm.src.viewmodel
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 
-class CategoryViewModel: ViewModel(){
+class CategoryViewModel(application: Application) : AndroidViewModel(application){
 
 }

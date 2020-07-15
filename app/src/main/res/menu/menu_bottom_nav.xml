@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/fg_home"
         android:title="Home"
         android:icon="@mipmap/ic_launcher"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/nav_category"
+        android:id="@+id/fg_category"
         android:title="Category"
         android:icon="@mipmap/ic_launcher"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/nav_my_farm"
+        android:id="@+id/fg_my_farm"
         android:title="MyFarm"
         android:icon="@mipmap/ic_launcher"
         app:showAsAction="ifRoom"/>

@@ -24,15 +24,19 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent">
             <TextView
+                android:id="@+id/main_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PocketFarm"
+                tools:text="PocketFarm"
+                android:text="@{viewModel.mainTitle}"
                 android:textSize="18sp"
+                android:textColor="#333333"
+                android:fontFamily="@font/notosanscjkkr_medium"
                 android:layout_gravity="center"/>
         </androidx.appcompat.widget.Toolbar>
 
 
-        <androidx.fragment.app.FragmentContainerView
+        <fragment
             android:id="@+id/main_nav_container"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
