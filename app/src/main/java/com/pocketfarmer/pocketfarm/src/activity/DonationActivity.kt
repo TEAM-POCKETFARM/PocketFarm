@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.pocketfarmer.pocketfarm.R
 import com.pocketfarmer.pocketfarm.databinding.ActivityDonationBinding
 import com.pocketfarmer.pocketfarm.src.base.BaseActivity
+import com.pocketfarmer.pocketfarm.src.model.DataDonation
 import com.pocketfarmer.pocketfarm.src.viewmodel.DonationViewModel
 import kotlinx.android.synthetic.main.activity_donation.*
 
@@ -15,6 +16,8 @@ class DonationActivity(override val layoutId: Int = R.layout.activity_donation)
             = ViewModelProvider(this).get(DonationViewModel::class.java)
 
     override fun initView(savedInstanceState: Bundle?) {
+        viewmodel.setDonationData(intent.getSerializableExtra("data") as DataDonation)
+
         donation_toolbar.setOnMenuItemClickListener {
             finish()
             false

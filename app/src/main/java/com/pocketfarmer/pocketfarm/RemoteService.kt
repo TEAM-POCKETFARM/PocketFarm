@@ -1,6 +1,7 @@
 package com.pocketfarmer.pocketfarm
 
 import com.pocketfarmer.pocketfarm.src.model.BoardResponseData
+import com.pocketfarmer.pocketfarm.src.model.DonationResponseData
 import com.pocketfarmer.pocketfarm.src.model.UserRequestData
 import com.pocketfarmer.pocketfarm.src.model.UserResponseData
 import retrofit2.Call
@@ -13,4 +14,8 @@ interface RemoteService {
     
     @GET("board/boardAll")
     fun getBoardAll():Call<BoardResponseData>
+
+    @GET("home/donations")
+    fun getDonation():Call<DonationResponseData>
+
 }

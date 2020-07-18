@@ -3,9 +3,9 @@ package com.pocketfarmer.pocketfarm.src.model
 
 import com.google.gson.annotations.SerializedName
 
-data class UserResponseData(
+data class DonationResponseData(
     @SerializedName("data")
-    val dataUser: DataUser?,
+    val `data`: DataDonation,
     @SerializedName("message")
     val message: String,
     @SerializedName("statusCode")

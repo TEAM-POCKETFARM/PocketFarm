@@ -10,12 +10,15 @@ import com.pocketfarmer.pocketfarm.NetworkHelper
 import com.pocketfarmer.pocketfarm.src.activity.DetailActivity
 import com.pocketfarmer.pocketfarm.src.model.BoardResponseData
 import com.pocketfarmer.pocketfarm.src.model.DataBoard
+import com.pocketfarmer.pocketfarm.src.model.DataDonation
+import com.pocketfarmer.pocketfarm.src.model.DonationResponseData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class HomeViewModel(application: Application) : AndroidViewModel(application){
     var contents = getContentsList()
+    var donation = getDonationData()
 
     private fun getContentsList(): LiveData<List<DataBoard>>{
         val contents: MutableLiveData<List<DataBoard>> = MutableLiveData()
@@ -35,6 +38,26 @@ class HomeViewModel(application: Application) : AndroidViewModel(application){
         })
 
         return contents
+    }
+
+    private fun getDonationData(): LiveData<DataDonation>{
+        val dataDonation: MutableLiveData<DataDonation> = MutableLiveData()
+
+        val result = NetworkHelper.getInstance().getService().getDonation()
+        result.enqueue(object: Callback<DonationResponseData> {
+            override fun onFailure(call: Call<DonationResponseData>, t: Throwable) {
+            }
+
+            override fun onResponse(
+                call: Call<DonationResponseData>,
+                response: Response<DonationResponseData>
+            ) {
+                val donationResponseData : DonationResponseData = response.body() ?: return
+                dataDonation.value = donationResponseData.data
+            }
+        })
+
+        return dataDonation
     }
 
     fun navigateTo(activity: Class<DetailActivity>, board: DataBoard){

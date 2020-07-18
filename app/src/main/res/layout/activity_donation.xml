@@ -65,7 +65,7 @@
                         android:id="@+id/donation_total_text2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3,100,000"
+                        android:text="@{viewModel.donation.currentPrice}"
                         android:textSize="35sp"
                         android:textColor="#333333"
                         android:layout_centerHorizontal="true"
@@ -96,20 +96,64 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/donation_total_text3"
                         android:layout_marginTop="10dp"/>
-                    <TextView
+                    <LinearLayout
                         android:id="@+id/donation_total_text4"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
                         android:background="@drawable/edittext_background"
-                        android:text="목표금액 10,000,000 원까지 31% 달성"
-                        android:textSize="14sp"
-                        android:textColor="#333333"
-                        android:fontFamily="@font/notosanscjkkr_medium"
-                        android:paddingHorizontal="40dp"
+                        android:gravity="center"
                         android:layout_marginTop="9dp"
                         android:layout_marginBottom="50dp"
+                        android:layout_marginHorizontal="30dp"
+                        android:paddingHorizontal="40dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/donation_total_line"/>
+                        android:layout_below="@+id/donation_total_line">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="목표금액  "
+                            android:textSize="14sp"
+                            android:textColor="#333333"
+                            android:fontFamily="@font/notosanscjjkr_regular"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.donation.goalPrice}"
+                            android:textSize="14sp"
+                            tools:text="1000000"
+                            android:textColor="#ff0f39"
+                            android:fontFamily="@font/notosanscjkkr_medium"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="  원까지  "
+                            android:textSize="14sp"
+                            android:textColor="#333333"
+                            android:fontFamily="@font/notosanscjjkr_regular"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.donationRate}"
+                            android:textSize="14sp"
+                            tools:text="30"
+                            android:textColor="#ff0f39"
+                            android:fontFamily="@font/notosanscjkkr_medium"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="%"
+                            android:textSize="14sp"
+                            android:textColor="#ff0f39"
+                            android:fontFamily="@font/notosanscjkkr_medium"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="  달성"
+                            android:textSize="14sp"
+                            android:textColor="#333333"
+                            android:fontFamily="@font/notosanscjjkr_regular"/>
+                    </LinearLayout>
                 </RelativeLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -118,7 +162,7 @@
                     <ImageView
                         android:id="@+id/donation_image"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="230dp"
                         android:scaleType="fitXY"
                         android:src="@drawable/bitmap"/>
                     <TextView
