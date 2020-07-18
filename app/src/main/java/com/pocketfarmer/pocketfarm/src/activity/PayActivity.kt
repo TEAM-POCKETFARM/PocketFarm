@@ -20,10 +20,10 @@ class PayActivity(override val layoutId: Int = R.layout.activity_pay) : BaseActi
         supportActionBar?.title = ""
 
         pay_reword_text2.bringToFront()
-        pay_reword_text2.text = viewmodel.setReword(intent.getIntExtra("price", 0), 0.005)
+        pay_reword_text2.text = viewmodel.setReword(intent.getIntExtra("price", 0), 0.05)
 
         pay_bm_text2.bringToFront()
-        pay_bm_text2.text = viewmodel.setReword(intent.getIntExtra("price", 0), 0.001)
+        pay_bm_text2.text = viewmodel.setReword(intent.getIntExtra("price", 0), 0.01)
 
         pay_my_farm_check_button.setOnClickListener {
             

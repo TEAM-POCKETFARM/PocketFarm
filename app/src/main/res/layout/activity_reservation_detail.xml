@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocketfarmer.pocketfarm.src.viewmodel.ReservationDetailViewModel" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/detail_reservation_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:background="#ffffff">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예약상세"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:fontFamily="@font/notosanscjkkr_medium"
+                android:layout_gravity="center"/>
+        </androidx.appcompat.widget.Toolbar>
+        <com.amar.library.ui.StickyScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:stickyHeader="@id/detail_navigation_bar"
+            android:layout_below="@+id/detail_reservation_toolbar">
+            <LinearLayout
+                android:id="@+id/detail_reservation_page_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/detail_reservation_navigation_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    app:tabSelectedTextColor="@color/selector_bn_text"
+                    app:tabIndicatorColor="@color/selector_bn_text">
+                    <com.google.android.material.tabs.TabItem
+                        android:id="@+id/fg_reservation_timeline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="팜기록"/>
+                    <com.google.android.material.tabs.TabItem
+                        android:id="@+id/fg_reservation_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="예약정보"/>
+                </com.google.android.material.tabs.TabLayout>
+                <FrameLayout
+                    android:id="@+id/detail_reservation_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </com.amar.library.ui.StickyScrollView>
+    </RelativeLayout>
+</layout>

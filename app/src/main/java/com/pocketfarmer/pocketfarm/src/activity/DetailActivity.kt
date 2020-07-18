@@ -3,6 +3,7 @@ package com.pocketfarmer.pocketfarm.src.activity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayout
 import com.pocketfarmer.pocketfarm.R
@@ -22,8 +23,11 @@ class DetailActivity(override val layoutId: Int = R.layout.activity_detail)
 
     private val fragments:ArrayList<Fragment> = arrayListOf(ProductFragment(), FarmFragment(), ReviewFragment(), QuestionFragment())
 
-    override fun getViewModel(): DetailViewModel
-            = ViewModelProvider(this).get(DetailViewModel::class.java)
+    override fun getViewModel(): DetailViewModel {
+        val boardIdx = (intent.getSerializableExtra("data") as DataBoard).boardIdx
+
+        return ViewModelProvider(this, DetailViewModelFactory(boardIdx)).get(DetailViewModel::class.java)
+    }
 
     override fun initView(savedInstanceState: Bundle?) {
         setSupportActionBar(detail_toolbar)
@@ -35,7 +39,8 @@ class DetailActivity(override val layoutId: Int = R.layout.activity_detail)
         supportFragmentManager.beginTransaction().add(R.id.detail_fragment, fragments[0]).commit()
 
         detail_reservation_button.setOnClickListener {
-            val bottomSheetDialog = ReservationBottomSheetDialog.getInstance()
+            val bottomSheetDialog = ReservationBottomSheetDialog
+                .getInstance((intent.getSerializableExtra("data") as DataBoard).boardIdx)
             bottomSheetDialog.show(supportFragmentManager, "bottomSheet")
         }
 
@@ -61,5 +66,9 @@ class DetailActivity(override val layoutId: Int = R.layout.activity_detail)
 
     private fun fragmentChange(fragmentShow:Int){
         supportFragmentManager.beginTransaction().replace(R.id.detail_fragment, fragments[fragmentShow]).commit()
+    }
+
+    class DetailViewModelFactory(private var boardIdx: Int) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T = DetailViewModel(boardIdx) as T
     }
 }

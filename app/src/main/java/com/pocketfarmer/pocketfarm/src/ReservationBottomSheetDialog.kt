@@ -2,26 +2,29 @@ package com.pocketfarmer.pocketfarm.src
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.get
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.pocketfarmer.pocketfarm.R
+import com.pocketfarmer.pocketfarm.databinding.ReservationBottomSheetDialogBinding
+import com.pocketfarmer.pocketfarm.src.activity.DetailActivity
 import com.pocketfarmer.pocketfarm.src.activity.PayActivity
+import com.pocketfarmer.pocketfarm.src.viewmodel.DetailViewModel
 
-class ReservationBottomSheetDialog: BottomSheetDialogFragment(), View.OnClickListener{
+class ReservationBottomSheetDialog(private val boardIdx:Int): BottomSheetDialogFragment(), View.OnClickListener{
     private lateinit var linearLayout:LinearLayout
     private lateinit var numberTextView: TextView
     private var price: String = ""
 
     companion object{
-        fun getInstance(): ReservationBottomSheetDialog = ReservationBottomSheetDialog()
+        fun getInstance(boardIdx: Int): ReservationBottomSheetDialog = ReservationBottomSheetDialog(boardIdx)
     }
 
     override fun onCreateView(
@@ -29,17 +32,22 @@ class ReservationBottomSheetDialog: BottomSheetDialogFragment(), View.OnClickLis
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.reservation_bottom_sheet_dialog, container, false)
+        val binding = DataBindingUtil
+            .inflate<ReservationBottomSheetDialogBinding>(inflater,
+                R.layout.reservation_bottom_sheet_dialog, container, false)
+        binding.viewModel = ViewModelProvider(this,
+            DetailActivity.DetailViewModelFactory(boardIdx)).get(DetailViewModel::class.java)
+        binding.lifecycleOwner = this
 
-        linearLayout = view.findViewById(R.id.price_dialog_layout)
-        numberTextView = view.findViewById(R.id.price_number_text)
+        linearLayout = binding.priceDialogLayout
+        numberTextView = binding.priceNumberText
 
         setLayoutClickListener()
-        view.findViewById<Button>(R.id.price_number_minus_button).setOnClickListener(this)
-        view.findViewById<Button>(R.id.price_number_plus_button).setOnClickListener(this)
-        view.findViewById<Button>(R.id.price_dialog_reservation_button).setOnClickListener(this)
+        binding.priceNumberMinusButton.setOnClickListener(this)
+        binding.priceNumberPlusButton.setOnClickListener(this)
+        binding.priceDialogReservationButton.setOnClickListener(this)
 
-        return view
+        return binding.root
     }
 
     private fun setLayoutClickListener(){
@@ -55,7 +63,7 @@ class ReservationBottomSheetDialog: BottomSheetDialogFragment(), View.OnClickLis
                     if(linearLayout[i].id == view.id){
                         linearLayout[i].background =
                             resources.getDrawable(R.drawable.price_background_on, null)
-                        price = ((linearLayout[i] as LinearLayout)[1] as TextView).text.toString()
+                        price = (((linearLayout[i] as LinearLayout)[1] as LinearLayout)[0] as TextView).text.toString()
                     }else{
                         linearLayout[i].background =
                             resources.getDrawable(R.drawable.price_background_off, null)
@@ -75,7 +83,7 @@ class ReservationBottomSheetDialog: BottomSheetDialogFragment(), View.OnClickLis
                     return
                 }
                 val totalPrice
-                        = Integer.parseInt(price.replace(",".toRegex(), "").dropLast(1)) *
+                        = Integer.parseInt(price.replace(",".toRegex(), "")) *
                         Integer.parseInt(numberTextView.text.toString())
                 val intent = Intent(context, PayActivity::class.java).apply {
                     putExtra("price", totalPrice)

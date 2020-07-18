@@ -25,7 +25,7 @@
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
                     android:background="@drawable/group_2">
                     <ImageView
                         android:layout_width="wrap_content"
@@ -55,26 +55,244 @@
                         app:rippleColor="#f5f5f5"
                         android:layout_gravity="center"/>
                 </LinearLayout>
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="예약한 상품"
-                    android:textSize="16sp"
-                    android:textColor="#333333"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/notosanscjjkr_regular"
+                    android:orientation="horizontal"
                     android:layout_marginStart="15dp"
-                    android:layout_marginTop="25dp"/>
-                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="25dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="예약한 상품"
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:includeFontPadding="false"
+                        android:paddingBottom="3dp"
+                        android:fontFamily="@font/notosanscjjkr_regular" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/down"
+                        android:layout_gravity="bottom"/>
+                </LinearLayout>
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:overScrollMode="never"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                    app:cardCornerRadius="12dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:background="#ffffff">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff">
+                        <ImageView
+                            android:id="@+id/my_farm_reservation_image"
+                            android:layout_width="74dp"
+                            android:layout_height="74dp"
+                            android:scaleType="fitXY"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginVertical="17dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/my_farm_reservation_title"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                        <TextView
+                            android:id="@+id/my_farm_reservation_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="지훈이네 경북 의성 사과농장"
+                            android:textSize="14sp"
+                            android:textColor="#333333"
+                            android:layout_marginTop="17dp"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:includeFontPadding="false"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/my_farm_reservation_image"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/down"
+                            android:layout_marginEnd="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/my_farm_reservation_title"/>
+                        <LinearLayout
+                            android:id="@+id/my_farm_percent_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginTop="9dp"
+                            app:layout_constraintStart_toStartOf="@id/my_farm_reservation_title"
+                            app:layout_constraintTop_toBottomOf="@id/my_farm_reservation_title">
+                            <TextView
+                                android:id="@+id/my_farm_reservation_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textSize="24sp"
+                                android:textColor="#20591d"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="진행률"
+                                android:textSize="10sp"
+                                android:textColor="#979797"
+                                android:fontFamily="@font/notosanscjjkr_regular"
+                                android:includeFontPadding="false"/>
+                        </LinearLayout>
+                        <View
+                            android:id="@+id/my_farm_line"
+                            android:layout_width="1dp"
+                            android:layout_height="23dp"
+                            android:background="#dedede"
+                            android:layout_marginStart="25dp"
+                            app:layout_constraintTop_toTopOf="@id/my_farm_percent_layout"
+                            app:layout_constraintBottom_toBottomOf="@id/my_farm_percent_layout"
+                            app:layout_constraintStart_toEndOf="@id/my_farm_percent_layout"/>
+                        <LinearLayout
+                            android:id="@+id/my_farm_period_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginTop="9dp"
+                            android:layout_marginStart="25dp"
+                            app:layout_constraintStart_toEndOf="@+id/my_farm_line"
+                            app:layout_constraintTop_toBottomOf="@id/my_farm_reservation_title">
+                            <TextView
+                                android:id="@+id/my_farm_reservation_period"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="60d"
+                                android:textSize="24sp"
+                                android:textColor="#20591d"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="남은기간"
+                                android:textSize="10sp"
+                                android:textColor="#979797"
+                                android:fontFamily="@font/notosanscjjkr_regular"
+                                android:includeFontPadding="false"/>
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:background="#ffffff">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff">
+                        <ImageView
+                            android:id="@+id/my_farm_reservation_image2"
+                            android:layout_width="74dp"
+                            android:layout_height="74dp"
+                            android:scaleType="fitXY"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginVertical="17dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/my_farm_reservation_title2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                        <TextView
+                            android:id="@+id/my_farm_reservation_title2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="지훈이네 경북 의성 사과농장"
+                            android:textSize="14sp"
+                            android:textColor="#333333"
+                            android:layout_marginTop="17dp"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:includeFontPadding="false"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/my_farm_reservation_image2"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/down"
+                            android:layout_marginEnd="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/my_farm_reservation_title2"/>
+                        <LinearLayout
+                            android:id="@+id/my_farm_percent_layout2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginTop="9dp"
+                            app:layout_constraintStart_toStartOf="@id/my_farm_reservation_title2"
+                            app:layout_constraintTop_toBottomOf="@id/my_farm_reservation_title2">
+                            <TextView
+                                android:id="@+id/my_farm_reservation_percent2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textSize="24sp"
+                                android:textColor="#20591d"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="진행률"
+                                android:textSize="10sp"
+                                android:textColor="#979797"
+                                android:fontFamily="@font/notosanscjjkr_regular"
+                                android:includeFontPadding="false"/>
+                        </LinearLayout>
+                        <View
+                            android:id="@+id/my_farm_line2"
+                            android:layout_width="1dp"
+                            android:layout_height="23dp"
+                            android:background="#dedede"
+                            android:layout_marginStart="25dp"
+                            app:layout_constraintTop_toTopOf="@id/my_farm_percent_layout2"
+                            app:layout_constraintBottom_toBottomOf="@id/my_farm_percent_layout2"
+                            app:layout_constraintStart_toEndOf="@id/my_farm_percent_layout2"/>
+                        <LinearLayout
+                            android:id="@+id/my_farm_period_layout2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginTop="9dp"
+                            android:layout_marginStart="25dp"
+                            app:layout_constraintStart_toEndOf="@+id/my_farm_line2"
+                            app:layout_constraintTop_toBottomOf="@id/my_farm_reservation_title2">
+                            <TextView
+                                android:id="@+id/my_farm_reservation_period2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="60d"
+                                android:textSize="24sp"
+                                android:textColor="#20591d"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="남은기간"
+                                android:textSize="10sp"
+                                android:textColor="#979797"
+                                android:fontFamily="@font/notosanscjjkr_regular"
+                                android:includeFontPadding="false"/>
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#ffffff"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="44dp"
                     android:layout_marginHorizontal="15dp">
                     <LinearLayout
