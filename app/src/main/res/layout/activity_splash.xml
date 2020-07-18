@@ -6,4 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".src.activity.SplashActivity">
 
+    <ImageView
+        android:id="@+id/splash_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/splash_title"/>
+    <TextView
+        android:id="@+id/splash_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POCKET FARM"
+        android:textSize="20sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/montserrat_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+        android:id="@+id/splash_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="예약제로 신선하게!\n주머니 속 착한농장 포켓팜  FARM"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/notosanscjjkr_regular"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:layout_marginTop="31dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/splash_title"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

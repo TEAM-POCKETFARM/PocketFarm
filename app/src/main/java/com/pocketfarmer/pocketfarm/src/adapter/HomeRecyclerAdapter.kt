@@ -7,10 +7,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.pocketfarmer.pocketfarm.R
 import com.pocketfarmer.pocketfarm.databinding.RowHomeContentsBinding
-import com.pocketfarmer.pocketfarm.src.model.Content
+import com.pocketfarmer.pocketfarm.src.activity.DetailActivity
+import com.pocketfarmer.pocketfarm.src.model.BoardResponseData
 import com.pocketfarmer.pocketfarm.src.viewmodel.HomeViewModel
 
-class HomeRecyclerAdapter(var contents: List<Content> = arrayListOf(), val viewModel: HomeViewModel): RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
+class HomeRecyclerAdapter(var contents: List<BoardResponseData> = arrayListOf(), val viewModel: HomeViewModel): RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
 
     class HomeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val binding = DataBindingUtil.bind<RowHomeContentsBinding>(itemView)
@@ -22,7 +23,9 @@ class HomeRecyclerAdapter(var contents: List<Content> = arrayListOf(), val viewM
         viewType: Int
     ): HomeViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.row_home_contents, parent, false)
-
+        view.setOnClickListener {
+            viewModel.navigeTo(DetailActivity::class.java)
+        }
         return HomeViewHolder(view)
     }
 

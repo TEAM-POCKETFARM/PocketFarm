@@ -5,11 +5,11 @@
     <item
         android:id="@+id/menu_notify"
         android:title="notify"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/alert"
         app:showAsAction="always"/>
     <item
         android:id="@+id/menu_search"
         android:title="search"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/search"
         app:showAsAction="always"/>
 </menu>

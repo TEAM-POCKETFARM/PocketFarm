@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocketfarmer.pocketfarm.src.viewmodel.DetailFarmViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="78dp"
+        android:layout_marginTop="35dp">
+        
+        <ImageView
+            android:id="@+id/farmer_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/farmer_image"
+            android:layout_marginStart="15dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/farmer_text"/>
+        <TextView
+            android:id="@+id/farmer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@+id/farmer_image"
+            app:layout_constraintTop_toTopOf="parent"
+            android:includeFontPadding="false"
+            android:text="윤지훈"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:fontFamily="@font/notosanscjkkr_medium"/>
+        <TextView
+            android:id="@+id/farmer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/farmer_image"
+            app:layout_constraintTop_toBottomOf="@id/farmer_name"
+            android:includeFontPadding="false"
+            android:text="@string/farm_test"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:fontFamily="@font/notosanscjjkr_regular"/>
+
+        <View
+            android:id="@+id/farm_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f5f5f5"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="27dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/farmer_text"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/farm_image_card"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/farm_line">
+            <ImageView
+                android:id="@+id/farm_image"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:src="@drawable/bitmap"
+                android:scaleType="fitXY"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/farm_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="15dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/farm_image_card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:includeFontPadding="false"
+            android:text="@string/farm_test2"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:fontFamily="@font/notosanscjjkr_regular"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

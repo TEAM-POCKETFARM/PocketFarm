@@ -12,46 +12,129 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/home_title"
-            android:layout_width="wrap_content"
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Title"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/home_donation"/>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/home_donation"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:cardBackgroundColor="@color/selector_donation"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/home_title"
-            app:layout_constraintBottom_toTopOf="@+id/home_recyclerview"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="기부 현황"
-                android:layout_gravity="center"/>
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="예약제로 신선하게!\n주머니 속 착한농장"
+                        android:textSize="20sp"
+                        android:textColor="#333333"
+                        android:fontFamily="@font/notosanscjjkr_regular"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="포켓팜"
+                        android:textSize="20sp"
+                        android:textColor="#333333"
+                        android:textStyle="bold"
+                        android:layout_gravity="bottom"
+                        android:fontFamily="@font/notosanscjjkr_regular" />
+                    <ImageView
+                        android:layout_width="43dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/logo"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/home_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
-            contents="@{viewModel.contents}"
-            viewModel="@{viewModel}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@+id/home_donation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="포켓파머들의 착한 소비"
+                    android:textSize="16sp"
+                    android:textColor="#333333"
+                    android:fontFamily="@font/notosanscjjkr_regular"
+                    android:layout_marginStart="15dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/home_donation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/banner"
+                        android:layout_centerInParent="true"/>
+                    <TextView
+                        android:id="@+id/home_donation_total_text1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="코로나 19 피해농가 후원"
+                        android:textSize="14sp"
+                        android:textColor="#333333"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="45dp"
+                        android:fontFamily="@font/notosanscjjkr_regular"
+                        android:layout_centerHorizontal="true"/>
+                    <TextView
+                        android:id="@+id/home_donation_total_text2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3,100,000"
+                        android:textSize="30sp"
+                        android:textColor="#333333"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/roboto_medium"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/home_donation_total_text1"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="#333333"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignBaseline="@+id/home_donation_total_text2"
+                        android:layout_toStartOf="@+id/home_donation_total_text2"
+                        android:layout_toEndOf="@+id/home_donation_total_text2"/>
+                    <TextView
+                        android:id="@+id/home_donation_total_text3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="원이 모였습니다!"
+                        android:textSize="14sp"
+                        android:includeFontPadding="false"
+                        android:textColor="#333333"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/home_donation_total_text2"/>
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/test_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="지금 가장 인기 있는 팜"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/notosanscjjkr_regular"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="15dp"/>
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/home_recyclerview"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_marginTop="9dp"-->
+<!--                    android:overScrollMode="never"-->
+<!--                    contents="@{viewModel.contents}"-->
+<!--                    viewModel="@{viewModel}"-->
+<!--                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>-->
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

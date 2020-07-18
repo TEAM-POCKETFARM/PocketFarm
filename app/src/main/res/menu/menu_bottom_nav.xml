@@ -4,18 +4,18 @@
     <item
         android:id="@+id/fg_home"
         android:title="Home"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/selector_home_menu"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/fg_category"
         android:title="Category"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/selector_category_menu"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/fg_my_farm"
         android:title="MyFarm"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/selector_my_farm_menu"
         app:showAsAction="ifRoom"/>
 </menu>

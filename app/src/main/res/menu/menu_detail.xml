@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/fg_detail_product"
+        android:title="상품소개"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/fg_detail_farm"
+        android:title="파머/팜소개"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/fg_detail_review"
+        android:title="상품리뷰"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/fg_detail_question"
+        android:title="상품문의"
+        app:showAsAction="ifRoom"/>
+</menu>
