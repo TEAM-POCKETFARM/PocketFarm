@@ -11,18 +11,127 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#f5f5f5">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:includeFontPadding="false"
-            android:lineSpacingExtra="2sp"
-            android:text="Coming Soon!\nThanks for your waiting"
-            android:gravity="center"
-            android:textSize="18sp" />
+            app:layout_constraintTop_toTopOf="parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/group_2">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/farmer_image"
+                        android:layout_marginStart="15dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이동원님의 팜"
+                        android:textColor="#333333"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/notosanscjjkr_regular"
+                        android:layout_marginStart="15dp"
+                        android:layout_gravity="center"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/pay_my_farm_check_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:text="정보수정"
+                        android:textColor="#979797"
+                        android:textSize="12sp"
+                        app:cornerRadius="15dp"
+                        app:strokeColor="#dedede"
+                        app:rippleColor="#f5f5f5"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="예약한 상품"
+                    android:textSize="16sp"
+                    android:textColor="#333333"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/notosanscjjkr_regular"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="25dp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="44dp"
+                    android:layout_marginHorizontal="15dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="찜리스트"
+                            android:textColor="#333333"
+                            android:textAlignment="viewStart"
+                            app:icon="@drawable/heart_color"
+                            app:iconTint="@null"
+                            app:iconPadding="14dp"
+                            app:rippleColor="#f5f5f5"
+                            android:paddingHorizontal="10dp"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="구매후기"
+                            android:textColor="#333333"
+                            android:textAlignment="viewStart"
+                            app:icon="@drawable/review_color"
+                            app:iconTint="@null"
+                            app:iconPadding="14dp"
+                            app:rippleColor="#f5f5f5"
+                            android:paddingHorizontal="10dp"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="환경설정"
+                            android:textColor="#333333"
+                            android:textAlignment="viewStart"
+                            app:icon="@drawable/setting_color"
+                            app:iconTint="@null"
+                            app:iconPadding="14dp"
+                            app:rippleColor="#f5f5f5"
+                            android:paddingHorizontal="10dp"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="고객센터"
+                            android:textColor="#333333"
+                            android:textAlignment="viewStart"
+                            app:icon="@drawable/cs"
+                            app:iconTint="@null"
+                            app:iconPadding="14dp"
+                            app:rippleColor="#f5f5f5"
+                            android:paddingHorizontal="10dp"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -7,24 +7,28 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.pocketfarmer.pocketfarm.R
 import com.pocketfarmer.pocketfarm.src.adapter.HomeRecyclerAdapter
-import com.pocketfarmer.pocketfarm.src.model.BoardResponseData
+import com.pocketfarmer.pocketfarm.src.model.DataBoard
 import com.pocketfarmer.pocketfarm.src.viewmodel.HomeViewModel
 
 object BindingAdapter {
 
     @BindingAdapter(value = ["contents", "viewModel"])
     @JvmStatic
-    fun settingAdapter(view: RecyclerView, contents: List<BoardResponseData>, viewModel: HomeViewModel) {
+    fun settingAdapter(view: RecyclerView, contents: List<DataBoard>?, viewModel: HomeViewModel) {
         view.adapter?.run {
             if (this is HomeRecyclerAdapter) {
-                this.contents = contents
+                if (contents != null) {
+                    this.contents = contents
+                }
                 this.notifyDataSetChanged()
             }
         } ?: run {
-            HomeRecyclerAdapter(
-                contents,
-                viewModel
-            ).apply { view.adapter = this }
+            if (contents != null) {
+                HomeRecyclerAdapter(
+                    contents,
+                    viewModel
+                ).apply { view.adapter = this }
+            }
         }
     }
 

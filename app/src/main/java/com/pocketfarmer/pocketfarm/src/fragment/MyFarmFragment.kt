@@ -17,6 +17,4 @@ class MyFarmFragment(override val layoutId: Int = R.layout.fragment_my_farm)
     override fun initView() {
 
     }
-
-
 }

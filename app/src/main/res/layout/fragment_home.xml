@@ -123,15 +123,16 @@
                     android:fontFamily="@font/notosanscjjkr_regular"
                     android:layout_marginTop="24dp"
                     android:layout_marginStart="15dp"/>
-<!--                <androidx.recyclerview.widget.RecyclerView-->
-<!--                    android:id="@+id/home_recyclerview"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:layout_marginTop="9dp"-->
-<!--                    android:overScrollMode="never"-->
-<!--                    contents="@{viewModel.contents}"-->
-<!--                    viewModel="@{viewModel}"-->
-<!--                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/home_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="9dp"
+                    android:overScrollMode="never"
+                    contents="@{viewModel.contents}"
+                    viewModel="@{viewModel}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".src.activity.PayActivity"></activity>
+        <activity android:name=".src.activity.PayActivity"/>
         <activity android:name=".src.activity.DetailActivity" />
         <activity android:name=".src.activity.DonationActivity" />
         <activity android:name=".src.activity.SignInActivity" />

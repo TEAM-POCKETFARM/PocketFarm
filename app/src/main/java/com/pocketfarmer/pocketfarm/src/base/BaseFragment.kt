@@ -1,6 +1,5 @@
 package com.pocketfarmer.pocketfarm.src.base
 
-import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,15 +12,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.transition.ChangeBounds
 import com.pocketfarmer.pocketfarm.BR
-import com.pocketfarmer.pocketfarm.R
 
 abstract class BaseFragment<B : ViewDataBinding, VM : ViewModel> : Fragment(),
     BaseFragmentView<VM> {
 
     protected lateinit var binding : B
     protected lateinit var viewmodel : VM
-
-    var mProgressDialog: ProgressDialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,31 +44,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : ViewModel> : Fragment(),
     open fun showToast(message: String?) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
-
-    open fun showProgressDialog() {
-        if (mProgressDialog == null) {
-            mProgressDialog = ProgressDialog(context)
-            mProgressDialog!!.setMessage(getString(R.string.loading))
-            mProgressDialog!!.setCancelable(false)
-            mProgressDialog!!.setIndeterminate(true)
-        }
-        if (!isRemoving) {
-            mProgressDialog!!.show()
-        }
-    }
-
-    open fun hideProgressDialog() {
-        if (mProgressDialog != null && mProgressDialog!!.isShowing()) {
-            mProgressDialog!!.dismiss()
-        }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        hideProgressDialog()
-    }
 }
-
 
 interface BaseFragmentView<VM : ViewModel> {
 

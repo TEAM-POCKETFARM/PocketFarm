@@ -1,7 +1,6 @@
 package com.pocketfarmer.pocketfarm.src.activity
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +13,7 @@ import com.pocketfarmer.pocketfarm.src.fragment.FarmFragment
 import com.pocketfarmer.pocketfarm.src.fragment.ProductFragment
 import com.pocketfarmer.pocketfarm.src.fragment.QuestionFragment
 import com.pocketfarmer.pocketfarm.src.fragment.ReviewFragment
+import com.pocketfarmer.pocketfarm.src.model.DataBoard
 import com.pocketfarmer.pocketfarm.src.viewmodel.DetailViewModel
 import kotlinx.android.synthetic.main.activity_detail.*
 
@@ -38,6 +38,8 @@ class DetailActivity(override val layoutId: Int = R.layout.activity_detail)
             val bottomSheetDialog = ReservationBottomSheetDialog.getInstance()
             bottomSheetDialog.show(supportFragmentManager, "bottomSheet")
         }
+
+        viewmodel.setBoardData(intent.getSerializableExtra("data") as DataBoard)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

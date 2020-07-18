@@ -48,7 +48,7 @@
             android:paddingStart="17dp"
             android:layout_marginHorizontal="30dp"
             android:layout_marginBottom="10dp"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             app:layout_constraintTop_toBottomOf="@id/sign_in_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +102,8 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:text="아이디 찾기"
                 android:textSize="12sp"
-                android:textColor="#333333"/>
+                android:textColor="#333333"
+                app:rippleColor="#f5f5f5"/>
             <View
                 android:layout_width="1dp"
                 android:layout_height="10dp"
@@ -113,7 +114,8 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:text="비밀번호 찾기"
                 android:textSize="12sp"
-                android:textColor="#333333"/>
+                android:textColor="#333333"
+                app:rippleColor="#f5f5f5"/>
             <View
                 android:layout_width="1dp"
                 android:layout_height="10dp"
@@ -124,7 +126,8 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:text="회원가입"
                 android:textSize="12sp"
-                android:textColor="#333333"/>
+                android:textColor="#333333"
+                app:rippleColor="#f5f5f5"/>
         </LinearLayout>
         <TextView
             android:id="@+id/sign_in_sns_title"

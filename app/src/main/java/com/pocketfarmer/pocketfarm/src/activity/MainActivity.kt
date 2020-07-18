@@ -1,8 +1,6 @@
 package com.pocketfarmer.pocketfarm.src.activity
 
-import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -30,6 +28,8 @@ class MainActivity (override val layoutId: Int = R.layout.activity_main)
                 viewmodel.setTitle(destination.id)
                 if(destination.id == R.id.fg_home) binding.mainTitle.typeface =
                     resources.getFont(R.font.montserrat_medium)
+                binding.mainToolbar.menu.findItem(R.id.menu_search).isVisible =
+                    destination.id != R.id.fg_my_farm
             }
     }
 

@@ -10,10 +10,10 @@
         tools:layout="@layout/fragment_home"/>
     <fragment
         android:id="@+id/fg_category"
-        android:name="com.pocketfarmer.pocketfarm.src.fragment.MyFarmFragment"
+        android:name="com.pocketfarmer.pocketfarm.src.fragment.CategoryFragment"
         tools:layout="@layout/fragment_category"/>
     <fragment
         android:id="@+id/fg_my_farm"
-        android:name="com.pocketfarmer.pocketfarm.src.fragment.CategoryFragment"
+        android:name="com.pocketfarmer.pocketfarm.src.fragment.MyFarmFragment"
         tools:layout="@layout/fragment_my_farm"/>
 </navigation>

@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pocketfarmer.pocketfarm.R
 import com.pocketfarmer.pocketfarm.databinding.RowHomeContentsBinding
 import com.pocketfarmer.pocketfarm.src.activity.DetailActivity
-import com.pocketfarmer.pocketfarm.src.model.BoardResponseData
+import com.pocketfarmer.pocketfarm.src.model.DataBoard
 import com.pocketfarmer.pocketfarm.src.viewmodel.HomeViewModel
 
-class HomeRecyclerAdapter(var contents: List<BoardResponseData> = arrayListOf(), val viewModel: HomeViewModel): RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
+class HomeRecyclerAdapter(var contents: List<DataBoard> = arrayListOf(), val viewModel: HomeViewModel): RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
 
     class HomeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val binding = DataBindingUtil.bind<RowHomeContentsBinding>(itemView)
@@ -23,10 +23,13 @@ class HomeRecyclerAdapter(var contents: List<BoardResponseData> = arrayListOf(),
         viewType: Int
     ): HomeViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.row_home_contents, parent, false)
+        val holder = HomeViewHolder(view)
+        
         view.setOnClickListener {
-            viewModel.navigeTo(DetailActivity::class.java)
+            viewModel.navigateTo(DetailActivity::class.java, contents[holder.adapterPosition])
         }
-        return HomeViewHolder(view)
+        
+        return holder
     }
 
     override fun getItemCount(): Int = contents.size

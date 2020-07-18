@@ -4,21 +4,20 @@
     <data>
         <variable
             name="item"
-            type="com.pocketfarmer.pocketfarm.src.model.BoardResponseData" />
+            type="com.pocketfarmer.pocketfarm.src.model.DataBoard" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="14dp"
-        android:background="#ffffff"
-        android:orientation="vertical">
+        android:background="#ffffff">
 
         <ImageView
             android:id="@+id/contents_image"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:src="@drawable/bitmap"
+            bind_img_url="@{item.boardImg}"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/contents_title"
@@ -65,14 +64,28 @@
             android:id="@+id/contents_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@{item.minPrice}"
+            android:text="@{item.price1}"
             android:textSize="18sp"
             android:textColor="#333333"
-            android:fontFamily="@font/notosanscjjkr_regular"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            tools:text="dfsdf"
             android:layout_marginStart="9dp"
             app:layout_constraintStart_toEndOf="@id/contents_image"
             app:layout_constraintTop_toBottomOf="@id/contents_title"/>
-
+        <TextView
+            android:id="@+id/text_won"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="원"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:fontFamily="@font/notosanscjjkr_regular"
+            android:includeFontPadding="false"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@id/contents_price"
+            app:layout_constraintTop_toBottomOf="@id/contents_title"
+            app:layout_constraintBaseline_toBaselineOf="@+id/contents_price"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

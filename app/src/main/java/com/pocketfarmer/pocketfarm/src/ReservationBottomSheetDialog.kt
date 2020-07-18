@@ -81,6 +81,7 @@ class ReservationBottomSheetDialog: BottomSheetDialogFragment(), View.OnClickLis
                     putExtra("price", totalPrice)
                 }
                 startActivity(intent)
+                activity?.finish()
                 dismiss()
             }
         }

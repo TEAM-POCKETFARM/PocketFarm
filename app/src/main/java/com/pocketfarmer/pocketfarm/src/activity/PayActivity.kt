@@ -1,5 +1,6 @@
 package com.pocketfarmer.pocketfarm.src.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.pocketfarmer.pocketfarm.R
@@ -23,6 +24,14 @@ class PayActivity(override val layoutId: Int = R.layout.activity_pay) : BaseActi
 
         pay_bm_text2.bringToFront()
         pay_bm_text2.text = viewmodel.setReword(intent.getIntExtra("price", 0), 0.001)
+
+        pay_my_farm_check_button.setOnClickListener {
+            
+        }
+        pay_donation_check_button.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
     }
 
 }

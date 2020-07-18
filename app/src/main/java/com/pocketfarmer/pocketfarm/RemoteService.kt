@@ -12,5 +12,5 @@ interface RemoteService {
     fun loginService(@Body userRequestData: UserRequestData) : Call<UserResponseData>
     
     @GET("board/boardAll")
-    fun getBoardAll():Call<List<BoardResponseData>>
+    fun getBoardAll():Call<BoardResponseData>
 }
