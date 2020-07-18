@@ -19,6 +19,7 @@ import retrofit2.Response
 class HomeViewModel(application: Application) : AndroidViewModel(application){
     var contents = getContentsList()
     var donation = getDonationData()
+    var donationRate:MutableLiveData<String> = MutableLiveData()
 
     private fun getContentsList(): LiveData<List<DataBoard>>{
         val contents: MutableLiveData<List<DataBoard>> = MutableLiveData()
@@ -54,6 +55,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application){
             ) {
                 val donationResponseData : DonationResponseData = response.body() ?: return
                 dataDonation.value = donationResponseData.data
+                donationRate.value = donationResponseData.data.archiveRate.toString()
             }
         })
 

@@ -10,21 +10,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.pocketfarmer.pocketfarm.R
 import com.pocketfarmer.pocketfarm.databinding.ReservationBottomSheetDialogBinding
 import com.pocketfarmer.pocketfarm.src.activity.DetailActivity
 import com.pocketfarmer.pocketfarm.src.activity.PayActivity
-import com.pocketfarmer.pocketfarm.src.viewmodel.DetailViewModel
 
-class ReservationBottomSheetDialog(private val boardIdx:Int): BottomSheetDialogFragment(), View.OnClickListener{
+class ReservationBottomSheetDialog(): BottomSheetDialogFragment(), View.OnClickListener{
     private lateinit var linearLayout:LinearLayout
     private lateinit var numberTextView: TextView
     private var price: String = ""
 
     companion object{
-        fun getInstance(boardIdx: Int): ReservationBottomSheetDialog = ReservationBottomSheetDialog(boardIdx)
+        fun getInstance(): ReservationBottomSheetDialog = ReservationBottomSheetDialog()
     }
 
     override fun onCreateView(
@@ -35,8 +33,7 @@ class ReservationBottomSheetDialog(private val boardIdx:Int): BottomSheetDialogF
         val binding = DataBindingUtil
             .inflate<ReservationBottomSheetDialogBinding>(inflater,
                 R.layout.reservation_bottom_sheet_dialog, container, false)
-        binding.viewModel = ViewModelProvider(this,
-            DetailActivity.DetailViewModelFactory(boardIdx)).get(DetailViewModel::class.java)
+        binding.viewModel = (activity as DetailActivity).viewModelFragment
         binding.lifecycleOwner = this
 
         linearLayout = binding.priceDialogLayout

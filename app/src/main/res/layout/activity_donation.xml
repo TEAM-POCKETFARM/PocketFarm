@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.pocketfarmer.pocketfarm.src.viewmodel.DonationViewModel" />
+            type="com.pocketfarmer.pocketfarm.src.viewmodel.HomeViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"

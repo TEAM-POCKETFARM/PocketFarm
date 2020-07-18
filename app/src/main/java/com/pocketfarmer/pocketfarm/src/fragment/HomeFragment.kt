@@ -24,9 +24,7 @@ class HomeFragment(override val layoutId: Int = R.layout.fragment_home):
         })
 
         binding.homeDonation.setOnClickListener{
-            val intent = Intent(activity, DonationActivity::class.java).apply {
-                putExtra("data", dataDonation)
-            }
+            val intent = Intent(activity, DonationActivity::class.java)
             activity?.startActivity(intent)
         }
     }

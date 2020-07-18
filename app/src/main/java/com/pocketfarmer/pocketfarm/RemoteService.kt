@@ -17,4 +17,7 @@ interface RemoteService {
 
     @GET("board/{boardIdx}")
     fun getBoardDetail(@Path("boardIdx")boardIdx:Int):Call<BoardDetailResponseData>
+
+    @GET("board/goods/{boardIdx}")
+    fun getProduct(@Path("boardIdx")boardIdx:Int):Call<ProductResponseData>
 }

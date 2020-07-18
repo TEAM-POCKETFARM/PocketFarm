@@ -11,4 +11,4 @@ data class DataDonation(
     val currentPrice: String,
     @SerializedName("goalPrice")
     val goalPrice: String
-): Serializable
+)

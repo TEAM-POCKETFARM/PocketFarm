@@ -29,7 +29,7 @@ class PayActivity(override val layoutId: Int = R.layout.activity_pay) : BaseActi
             
         }
         pay_donation_check_button.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, DonationActivity::class.java))
             finish()
         }
     }

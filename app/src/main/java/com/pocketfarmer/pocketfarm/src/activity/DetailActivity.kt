@@ -22,6 +22,7 @@ class DetailActivity(override val layoutId: Int = R.layout.activity_detail)
     : BaseActivity<ActivityDetailBinding, DetailViewModel>(), TabLayout.OnTabSelectedListener {
 
     private val fragments:ArrayList<Fragment> = arrayListOf(ProductFragment(), FarmFragment(), ReviewFragment(), QuestionFragment())
+    lateinit var viewModelFragment: DetailViewModel
 
     override fun getViewModel(): DetailViewModel {
         val boardIdx = (intent.getSerializableExtra("data") as DataBoard).boardIdx
@@ -30,6 +31,8 @@ class DetailActivity(override val layoutId: Int = R.layout.activity_detail)
     }
 
     override fun initView(savedInstanceState: Bundle?) {
+        viewModelFragment = viewmodel
+
         setSupportActionBar(detail_toolbar)
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -40,7 +43,7 @@ class DetailActivity(override val layoutId: Int = R.layout.activity_detail)
 
         detail_reservation_button.setOnClickListener {
             val bottomSheetDialog = ReservationBottomSheetDialog
-                .getInstance((intent.getSerializableExtra("data") as DataBoard).boardIdx)
+                .getInstance()
             bottomSheetDialog.show(supportFragmentManager, "bottomSheet")
         }
 

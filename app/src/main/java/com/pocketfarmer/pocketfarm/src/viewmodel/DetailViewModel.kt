@@ -1,14 +1,10 @@
 package com.pocketfarmer.pocketfarm.src.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.pocketfarmer.pocketfarm.NetworkHelper
-import com.pocketfarmer.pocketfarm.src.model.BoardDetailResponseData
-import com.pocketfarmer.pocketfarm.src.model.DataBoard
-import com.pocketfarmer.pocketfarm.src.model.DataBoardDetail
+import com.pocketfarmer.pocketfarm.src.model.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,6 +18,9 @@ class DetailViewModel(boardIdx: Int) : ViewModel(){
     var amount3:MutableLiveData<String> = MutableLiveData()
     var goalAmount:MutableLiveData<String> = MutableLiveData()
     var goalRate:MutableLiveData<String> = MutableLiveData()
+
+    var productData = getProduct(boardIdx)
+    var productDetail:MutableLiveData<String> = MutableLiveData()
 
     private fun getBoardDetail(boardIdx: Int): LiveData<DataBoardDetail> {
         val board: MutableLiveData<DataBoardDetail> = MutableLiveData()
@@ -48,6 +47,27 @@ class DetailViewModel(boardIdx: Int) : ViewModel(){
         })
 
         return board
+    }
+
+    private fun getProduct(boardIdx: Int): LiveData<DataProduct> {
+        val product: MutableLiveData<DataProduct> = MutableLiveData()
+
+        val result = NetworkHelper.getInstance().getService().getProduct(boardIdx)
+        result.enqueue(object: Callback<ProductResponseData> {
+            override fun onFailure(call: Call<ProductResponseData>, t: Throwable) {
+            }
+
+            override fun onResponse(
+                call: Call<ProductResponseData>,
+                response: Response<ProductResponseData>
+            ) {
+                val responseData : ProductResponseData = response.body() ?: return
+                product.value = responseData.dataProduct
+                productDetail.value = responseData.dataProduct.goodsContent.replace("<br>".toRegex(), "\n")
+            }
+        })
+
+        return product
     }
 
     fun setBoardData(board: DataBoard){
