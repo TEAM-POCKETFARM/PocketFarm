@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocketfarmer.pocketfarm.src.viewmodel.TimelineViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/line1"
+            android:layout_width="51dp"
+            android:layout_height="50dp"
+            android:background="@drawable/dotted_line_vertical"
+            android:layerType="software"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:layout_marginTop="50dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            viewModel="@{viewModel}"
+            timeline="@{viewModel.timeline}"/>
+
+    </RelativeLayout>
+</layout>

@@ -11,7 +11,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#f5f5f5">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/detail_reservation_toolbar"
             android:layout_width="match_parent"
@@ -30,21 +31,114 @@
         <com.amar.library.ui.StickyScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:stickyHeader="@id/detail_navigation_bar"
+            app:stickyHeader="@id/detail_reservation_navigation_bar"
             android:layout_below="@+id/detail_reservation_toolbar">
             <LinearLayout
                 android:id="@+id/detail_reservation_page_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:background="@drawable/group_2">
+                    <ImageView
+                        android:id="@+id/detail_reservation_user_image"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/farmer_image"
+                        android:layout_marginTop="27dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/detail_reservation_title"/>
+                    <TextView
+                        android:id="@+id/detail_reservation_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="지훈이네 경북 의성 사과농장"
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="17dp"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="@font/notosanscjjkr_regular"
+                        android:includeFontPadding="false"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_reservation_user_image"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                    <LinearLayout
+                        android:id="@+id/detail_reservation_percent_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginEnd="25dp"
+                        app:layout_constraintEnd_toStartOf="@id/detail_reservation_line"
+                        app:layout_constraintTop_toBottomOf="@id/detail_reservation_title">
+                        <TextView
+                            android:id="@+id/detail_reservation_percent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            android:textSize="40sp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textColor="#20591d"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="진행률"
+                            android:textSize="12sp"
+                            android:textColor="#333333"
+                            android:fontFamily="@font/notosanscjjkr_regular"
+                            android:includeFontPadding="false"/>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/detail_reservation_line"
+                        android:layout_width="1dp"
+                        android:layout_height="23dp"
+                        android:background="#f5f5f5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/detail_reservation_percent_layout"
+                        app:layout_constraintBottom_toBottomOf="@id/detail_reservation_percent_layout"/>
+                    <LinearLayout
+                        android:id="@+id/detail_reservation_period_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginStart="25dp"
+                        app:layout_constraintStart_toEndOf="@+id/detail_reservation_line"
+                        app:layout_constraintTop_toBottomOf="@id/detail_reservation_title">
+                        <TextView
+                            android:id="@+id/detail_reservation_period"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="60d"
+                            android:textSize="40sp"
+                            android:textColor="#20591d"
+                            android:fontFamily="@font/roboto_medium"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="남은기간"
+                            android:textSize="12sp"
+                            android:textColor="#333333"
+                            android:fontFamily="@font/notosanscjjkr_regular"
+                            android:includeFontPadding="false"/>
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/detail_reservation_navigation_bar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#ffffff"
+                    app:tabIndicatorFullWidth="false"
                     app:tabSelectedTextColor="@color/selector_bn_text"
-                    app:tabIndicatorColor="@color/selector_bn_text">
+                    app:tabIndicatorColor="@color/selector_bn_text"
+                    android:layout_marginTop="8dp">
                     <com.google.android.material.tabs.TabItem
                         android:id="@+id/fg_reservation_timeline"
                         android:layout_width="wrap_content"
@@ -59,7 +153,9 @@
                 <FrameLayout
                     android:id="@+id/detail_reservation_fragment"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:paddingTop="27dp"/>
             </LinearLayout>
         </com.amar.library.ui.StickyScrollView>
     </RelativeLayout>

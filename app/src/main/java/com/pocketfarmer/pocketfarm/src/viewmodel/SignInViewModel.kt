@@ -1,16 +1,9 @@
 package com.pocketfarmer.pocketfarm.src.viewmodel
 
 import android.app.Application
-import android.content.Intent
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.pocketfarmer.pocketfarm.NetworkHelper
-import com.pocketfarmer.pocketfarm.src.activity.MainActivity
-import com.pocketfarmer.pocketfarm.src.activity.SignInActivity
-import com.pocketfarmer.pocketfarm.src.base.BaseActivity
 import com.pocketfarmer.pocketfarm.src.model.UserRequestData
 import com.pocketfarmer.pocketfarm.src.model.UserResponseData
 import retrofit2.Call
@@ -38,8 +31,6 @@ class SignInViewModel(application: Application) : AndroidViewModel(application) 
             ) {
                 val userResponseData = response.body() ?: UserResponseData(null, "로그인 실패", 400)
                 responseData.value = userResponseData
-
-                Log.d("userResponseData", userResponseData.toString())
             }
         })
     }

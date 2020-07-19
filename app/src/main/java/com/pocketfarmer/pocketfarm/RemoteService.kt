@@ -20,4 +20,21 @@ interface RemoteService {
 
     @GET("board/goods/{boardIdx}")
     fun getProduct(@Path("boardIdx")boardIdx:Int):Call<ProductResponseData>
+
+    @GET("board/farm/{boardIdx}")
+    fun getFarm(@Path("boardIdx")boardIdx:Int):Call<FarmResponseData>
+
+    @Headers("Content-Type: application/json")
+    @POST("board/reserve/boardIdx/{boardIdx}/userIdx/{userIdx}")
+    fun postReservation(@Path("boardIdx")boardIdx:Int, @Path("userIdx")userIdx:Int,
+        @Body reservationRequestData: ReservationRequestData):Call<String>
+
+    @GET("board/review/{boardIdx}")
+    fun getReviewList(@Path("boardIdx")boardIdx:Int):Call<ReviewResponseData>
+
+    @GET("mypage/{userIdx}")
+    fun getProfile(@Path("userIdx")userIdx:Int):Call<ProfileResponseData>
+
+    @GET("mypage/reservationAll/{userIdx}")
+    fun getReservation(@Path("userIdx")userIdx:Int):Call<ReservationResponseData>
 }

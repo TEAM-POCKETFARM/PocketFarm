@@ -25,18 +25,20 @@
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="200dp"
                     android:background="@drawable/group_2">
                     <ImageView
+                        android:id="@+id/my_farm_user_image"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/farmer_image"
+                        bind_img_url_circle="@{viewModel.profile.userImg}"
                         android:layout_marginStart="15dp"
                         android:layout_gravity="center"/>
                     <TextView
+                        android:id="@+id/my_farm_user_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="이동원님의 팜"
+                        android:text="@{viewModel.profileTitle}"
                         android:textColor="#333333"
                         android:textSize="20sp"
                         android:fontFamily="@font/notosanscjjkr_regular"
@@ -77,6 +79,7 @@
                         android:layout_gravity="bottom"/>
                 </LinearLayout>
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/my_farm_reservation_card1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="12dp"
@@ -94,6 +97,7 @@
                             android:layout_width="74dp"
                             android:layout_height="74dp"
                             android:scaleType="fitXY"
+                            bind_img_url_circle="@{viewModel.reservations[0].boardImg}"
                             android:layout_marginStart="15dp"
                             android:layout_marginVertical="17dp"
                             app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +108,7 @@
                             android:id="@+id/my_farm_reservation_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="지훈이네 경북 의성 사과농장"
+                            android:text="@{viewModel.reservations[0].title}"
                             android:textSize="14sp"
                             android:textColor="#333333"
                             android:layout_marginTop="17dp"
@@ -133,7 +137,7 @@
                                 android:id="@+id/my_farm_reservation_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="0%"
+                                android:text="@{viewModel.progressRate[0]}"
                                 android:textSize="24sp"
                                 android:textColor="#20591d"/>
                             <TextView
@@ -168,7 +172,7 @@
                                 android:id="@+id/my_farm_reservation_period"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="60d"
+                                android:text="@{viewModel.remainPeriod[0]}"
                                 android:textSize="24sp"
                                 android:textColor="#20591d"/>
                             <TextView
@@ -183,6 +187,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/my_farm_reservation_card2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="12dp"
@@ -200,6 +205,7 @@
                             android:layout_width="74dp"
                             android:layout_height="74dp"
                             android:scaleType="fitXY"
+                            bind_img_url_circle="@{viewModel.reservations[1].boardImg}"
                             android:layout_marginStart="15dp"
                             android:layout_marginVertical="17dp"
                             app:layout_constraintStart_toStartOf="parent"
@@ -210,7 +216,7 @@
                             android:id="@+id/my_farm_reservation_title2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="지훈이네 경북 의성 사과농장"
+                            android:text="@{viewModel.reservations[1].title}"
                             android:textSize="14sp"
                             android:textColor="#333333"
                             android:layout_marginTop="17dp"
@@ -239,7 +245,7 @@
                                 android:id="@+id/my_farm_reservation_percent2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="0%"
+                                android:text="@{viewModel.progressRate[1]}"
                                 android:textSize="24sp"
                                 android:textColor="#20591d"/>
                             <TextView
@@ -274,7 +280,7 @@
                                 android:id="@+id/my_farm_reservation_period2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="60d"
+                                android:text="@{viewModel.remainPeriod[1]}"
                                 android:textSize="24sp"
                                 android:textColor="#20591d"/>
                             <TextView

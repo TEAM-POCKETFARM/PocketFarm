@@ -1,22 +1,18 @@
 package com.pocketfarmer.pocketfarm.src.fragment
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Context
 import com.pocketfarmer.pocketfarm.src.base.BaseFragment
 import com.pocketfarmer.pocketfarm.R
 import com.pocketfarmer.pocketfarm.databinding.FragmentFarmBinding
-import com.pocketfarmer.pocketfarm.src.viewmodel.DetailFarmViewModel
+import com.pocketfarmer.pocketfarm.src.activity.DetailActivity
+import com.pocketfarmer.pocketfarm.src.viewmodel.DetailViewModel
 
 class FarmFragment(override val layoutId: Int = R.layout.fragment_farm)
-    : BaseFragment<FragmentFarmBinding, DetailFarmViewModel>() {
+    : BaseFragment<FragmentFarmBinding, DetailViewModel>() {
 
-
-    override fun getViewModel(): DetailFarmViewModel
-            = ViewModelProvider(this).get(DetailFarmViewModel::class.java)
-
+    override fun getViewModel(): DetailViewModel = (activity as DetailActivity).viewModelFragment
 
     override fun initView() {
 
     }
-
-
 }

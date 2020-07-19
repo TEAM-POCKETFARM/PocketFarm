@@ -23,9 +23,10 @@ class DetailActivity(override val layoutId: Int = R.layout.activity_detail)
 
     private val fragments:ArrayList<Fragment> = arrayListOf(ProductFragment(), FarmFragment(), ReviewFragment(), QuestionFragment())
     lateinit var viewModelFragment: DetailViewModel
+    var boardIdx: Int = -1
 
     override fun getViewModel(): DetailViewModel {
-        val boardIdx = (intent.getSerializableExtra("data") as DataBoard).boardIdx
+        boardIdx = (intent.getSerializableExtra("data") as DataBoard).boardIdx
 
         return ViewModelProvider(this, DetailViewModelFactory(boardIdx)).get(DetailViewModel::class.java)
     }

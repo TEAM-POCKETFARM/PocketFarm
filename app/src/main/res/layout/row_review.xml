@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="com.pocketfarmer.pocketfarm.src.model.DataReview" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:background="#ffffff">
+
+        <ImageView
+            android:id="@+id/review_image"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            bind_img_url="@{item.reviewImg}"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/contents_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/review_row_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/review_image"
+            app:layout_constraintTop_toTopOf="parent"
+            score="@{item.starScore}">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star_off" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star_off"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star_off"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star_off"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star_off"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/review_user_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#979797"
+            android:fontFamily="@font/notosanscjjkr_regular"
+            android:includeFontPadding="false"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/review_row_star"
+            app:layout_constraintStart_toEndOf="@id/review_image"/>
+        <TextView
+            android:id="@+id/contents_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.reviewContent}"
+            android:textSize="13sp"
+            android:textColor="#333333"
+            android:fontFamily="@font/notosanscjjkr_regular"
+            android:layout_marginStart="9dp"
+            app:layout_constraintStart_toEndOf="@id/review_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/review_user_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

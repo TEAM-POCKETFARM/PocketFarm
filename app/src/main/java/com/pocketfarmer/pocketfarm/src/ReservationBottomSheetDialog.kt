@@ -20,6 +20,7 @@ class ReservationBottomSheetDialog(): BottomSheetDialogFragment(), View.OnClickL
     private lateinit var linearLayout:LinearLayout
     private lateinit var numberTextView: TextView
     private var price: String = ""
+    private var amount: String = ""
 
     companion object{
         fun getInstance(): ReservationBottomSheetDialog = ReservationBottomSheetDialog()
@@ -61,6 +62,7 @@ class ReservationBottomSheetDialog(): BottomSheetDialogFragment(), View.OnClickL
                         linearLayout[i].background =
                             resources.getDrawable(R.drawable.price_background_on, null)
                         price = (((linearLayout[i] as LinearLayout)[1] as LinearLayout)[0] as TextView).text.toString()
+                        amount = ((linearLayout[i] as LinearLayout)[0] as TextView).text.toString()
                     }else{
                         linearLayout[i].background =
                             resources.getDrawable(R.drawable.price_background_off, null)
@@ -79,11 +81,12 @@ class ReservationBottomSheetDialog(): BottomSheetDialogFragment(), View.OnClickL
                     Toast.makeText(context, "상품을 선택해주세요", Toast.LENGTH_LONG).show()
                     return
                 }
-                val totalPrice
-                        = Integer.parseInt(price.replace(",".toRegex(), "")) *
-                        Integer.parseInt(numberTextView.text.toString())
+
                 val intent = Intent(context, PayActivity::class.java).apply {
-                    putExtra("price", totalPrice)
+                    putExtra("price", Integer.parseInt(price.replace(",".toRegex(), "")))
+                    putExtra("ea", Integer.parseInt(numberTextView.text.toString()))
+                    putExtra("amount", Integer.parseInt(amount.dropLast(2)))
+                    putExtra("boardIdx", (activity as DetailActivity).boardIdx)
                 }
                 startActivity(intent)
                 activity?.finish()

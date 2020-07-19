@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.pocketfarmer.pocketfarm.src.model.DataTimeline" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/circle"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/shape_circle_yellow"
+            android:backgroundTint="#20591d"
+            app:layout_constraintEnd_toStartOf="@+id/timeline_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line1" />
+
+        <ImageView
+            android:id="@+id/line1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/dotted_line_vertical"
+            android:layerType="software"
+            app:layout_constraintEnd_toStartOf="@+id/timeline_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/line2"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/dotted_line_vertical"
+            android:layerType="software"
+            app:layout_constraintEnd_toStartOf="@+id/timeline_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/circle" />
+
+        <ImageView
+            android:id="@+id/line3"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/dotted_line_vertical"
+            android:layerType="software"
+            app:layout_constraintEnd_toStartOf="@+id/timeline_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line2" />
+
+        <ImageView
+            android:id="@+id/line4"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/dotted_line_vertical"
+            android:layerType="software"
+            app:layout_constraintEnd_toStartOf="@+id/timeline_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line3" />
+
+        <ImageView
+            android:id="@+id/line5"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/dotted_line_vertical"
+            android:layerType="software"
+            app:layout_constraintEnd_toStartOf="@+id/timeline_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line4" />
+
+        <ImageView
+            android:id="@+id/timeline_image"
+            android:layout_width="310dp"
+            android:layout_height="150dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/bitmap"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/timeline_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjjkr_regular"
+            android:includeFontPadding="false"
+            android:text="오늘은 모든 농사의 중요한 단계인 밑거름 주기 작업을 하고 옥수수를 심어봤습니다^^ "
+            android:textColor="#333333"
+            android:textSize="13sp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/timeline_image"
+            app:layout_constraintStart_toStartOf="@+id/timeline_image"
+            app:layout_constraintTop_toBottomOf="@+id/timeline_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjjkr_regular"
+            android:includeFontPadding="false"
+            android:text="2020.00.00"
+            android:textColor="#979797"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/timeline_text"
+            app:layout_constraintTop_toBottomOf="@+id/timeline_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
