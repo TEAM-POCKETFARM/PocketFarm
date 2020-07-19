@@ -32,6 +32,7 @@
                 android:text="@{viewModel.mainTitle}"
                 android:textSize="18sp"
                 android:textColor="#333333"
+                android:letterSpacing="-0.04"
                 android:fontFamily="@font/notosanscjkkr_medium"
                 android:layout_gravity="center"/>
         </androidx.appcompat.widget.Toolbar>

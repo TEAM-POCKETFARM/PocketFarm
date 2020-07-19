@@ -390,7 +390,7 @@
         </com.amar.library.ui.StickyScrollView>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="58dp"
             android:orientation="horizontal"
             android:background="#ffffff"
             android:elevation="5dp"
@@ -423,7 +423,7 @@
                 android:layout_height="48dp"
                 android:text="예약하기"
                 android:textColor="#ffffff"
-                app:cornerRadius="12dp"
+                app:cornerRadius="6dp"
                 android:backgroundTint="#20591d"
                 android:layout_marginHorizontal="30dp"/>
         </LinearLayout>

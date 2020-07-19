@@ -25,8 +25,8 @@
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@drawable/group_2">
+                    android:layout_height="105dp"
+                    android:background="#ffffff">
                     <ImageView
                         android:id="@+id/my_farm_user_image"
                         android:layout_width="48dp"

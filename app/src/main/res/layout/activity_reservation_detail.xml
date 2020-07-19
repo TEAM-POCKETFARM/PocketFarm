@@ -47,7 +47,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="240dp"
-                    android:background="@drawable/group_2">
+                    android:background="#ffffff">
                     <ImageView
                         android:id="@+id/detail_reservation_user_image"
                         android:layout_width="40dp"

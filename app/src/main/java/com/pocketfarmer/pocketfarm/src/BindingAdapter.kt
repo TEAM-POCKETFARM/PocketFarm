@@ -88,7 +88,7 @@ object BindingAdapter {
     fun bindImgUrlCircle(view : ImageView, url : String?) {
         Glide.with(view.context)
             .load(url)
-            .error(R.drawable.logo)
+            .error(R.drawable.edittext_background)
             .transition(DrawableTransitionOptions.withCrossFade())
             .circleCrop()
             .into(view)
@@ -100,7 +100,7 @@ object BindingAdapter {
     fun bindImgUrl(view : ImageView, url : String?) {
         Glide.with(view.context)
             .load(url)
-            .error(R.drawable.logo)
+            .error(R.drawable.edittext_background)
             .transition(DrawableTransitionOptions.withCrossFade())
             .centerCrop()
             .into(view)
