@@ -26,10 +26,10 @@ class ReservationDetailActivity(override val layoutId: Int = R.layout.activity_r
     var position:Int = 0
 
     override fun getViewModel(): ReservationDetailViewModel {
-        val reserveIdx = intent.getIntExtra("reserveIdx", -1)
+        val boardIdx = intent.getIntExtra("boardIdx", -1)
 
         return ViewModelProvider(this,
-            ReservationDetailViewModelFactory(reserveIdx)).get(ReservationDetailViewModel::class.java)
+            ReservationDetailViewModelFactory(boardIdx)).get(ReservationDetailViewModel::class.java)
     }
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -73,7 +73,7 @@ class ReservationDetailActivity(override val layoutId: Int = R.layout.activity_r
         supportFragmentManager.beginTransaction().replace(R.id.detail_reservation_fragment, fragments[fragmentShow]).commit()
     }
 
-    class ReservationDetailViewModelFactory(private var reserveIdx: Int) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T = ReservationDetailViewModel(reserveIdx) as T
+    class ReservationDetailViewModelFactory(private var boardIdx: Int) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T = ReservationDetailViewModel(boardIdx) as T
     }
 }

@@ -38,7 +38,9 @@ class PayActivity(override val layoutId: Int = R.layout.activity_pay) : BaseActi
             pay_reword_text2.text.toString(), pay_bm_text2.text.toString())
 
         pay_my_farm_check_button.setOnClickListener {
-            startActivity(Intent(this, ReservationDetailActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java).apply {
+                action = "pocketFarm.fromPay"
+            })
             finish()
         }
         pay_donation_check_button.setOnClickListener {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="item"
-            type="com.pocketfarmer.pocketfarm.src.model.DataTimeline" />
+            type="com.pocketfarmer.pocketfarm.src.model.DataReservationDetail" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,6 +20,15 @@
             app:layout_constraintEnd_toStartOf="@+id/timeline_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/line1" />
+        <ImageView
+            android:id="@+id/line0"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/dotted_line_vertical"
+            android:layerType="software"
+            app:layout_constraintEnd_toStartOf="@+id/timeline_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/line1"
@@ -29,7 +38,7 @@
             android:layerType="software"
             app:layout_constraintEnd_toStartOf="@+id/timeline_image"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/line0" />
 
         <ImageView
             android:id="@+id/line2"
@@ -76,7 +85,7 @@
             android:layout_width="310dp"
             android:layout_height="150dp"
             android:scaleType="fitXY"
-            android:src="@drawable/bitmap"
+            bind_img_url="@{item.tlImg}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -87,7 +96,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/notosanscjjkr_regular"
             android:includeFontPadding="false"
-            android:text="오늘은 모든 농사의 중요한 단계인 밑거름 주기 작업을 하고 옥수수를 심어봤습니다^^ "
+            android:text="@{item.tlContent}"
+            tools:text="sdfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
             android:textColor="#333333"
             android:textSize="13sp"
             android:layout_marginTop="12dp"
@@ -100,7 +110,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/notosanscjjkr_regular"
             android:includeFontPadding="false"
-            android:text="2020.00.00"
+            android:text="@{item.date}"
+            tools:text="2020.00.00"
             android:textColor="#979797"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/timeline_text"

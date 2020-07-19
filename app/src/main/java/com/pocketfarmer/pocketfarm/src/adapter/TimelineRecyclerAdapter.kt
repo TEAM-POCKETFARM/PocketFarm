@@ -2,7 +2,6 @@ package com.pocketfarmer.pocketfarm.src.adapter
 
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,21 +10,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.pocketfarmer.pocketfarm.R
 import com.pocketfarmer.pocketfarm.databinding.RowTimelineBinding
-import com.pocketfarmer.pocketfarm.src.model.DataTimeline
-import com.pocketfarmer.pocketfarm.src.viewmodel.TimelineViewModel
+import com.pocketfarmer.pocketfarm.src.model.DataReservationDetail
+import com.pocketfarmer.pocketfarm.src.viewmodel.ReservationDetailViewModel
 
-class TimelineRecyclerAdapter(var timeline: List<DataTimeline> = arrayListOf(), val viewModel: TimelineViewModel):
+class TimelineRecyclerAdapter(var timeline: List<DataReservationDetail> = arrayListOf(), val viewModel: ReservationDetailViewModel):
     RecyclerView.Adapter<TimelineRecyclerAdapter.TimelineViewHolder>() {
 
     class TimelineViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val binding = DataBindingUtil.bind<RowTimelineBinding>(itemView)
-        val line2 = itemView.findViewById<ImageView>(R.id.line2)
-        val line3 = itemView.findViewById<ImageView>(R.id.line3)
-        val line4 = itemView.findViewById<ImageView>(R.id.line4)
-        val line5 = itemView.findViewById<ImageView>(R.id.line5)
-        val circle = itemView.findViewById<View>(R.id.circle)
     }
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -36,18 +29,18 @@ class TimelineRecyclerAdapter(var timeline: List<DataTimeline> = arrayListOf(), 
         return TimelineViewHolder(view)
     }
 
-    override fun getItemCount(): Int = 5
+    override fun getItemCount(): Int = timeline.size
 
     override fun onBindViewHolder(holder: TimelineViewHolder, position: Int) {
-//        val content = contents[position]
-//        holder.binding?.item = content
+        val content = timeline[position]
+        holder.binding?.item = content
 
-        if(position == 4){
-            holder.line2.visibility = View.GONE
-            holder.line3?.visibility = View.GONE
-            holder.line4?.visibility = View.GONE
-            holder.line5?.visibility = View.GONE
-            holder.circle?.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#ffc61c"))
+        if(position == timeline.lastIndex){
+            holder.binding?.line2?.visibility = View.GONE
+            holder.binding?.line3?.visibility = View.GONE
+            holder.binding?.line4?.visibility = View.GONE
+            holder.binding?.line5?.visibility = View.GONE
+            holder.binding?.circle?.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#ffc61c"))
         }
     }
 }

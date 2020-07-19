@@ -7,6 +7,7 @@ import androidx.navigation.ui.NavigationUI
 import com.pocketfarmer.pocketfarm.src.base.BaseActivity
 import com.pocketfarmer.pocketfarm.R
 import com.pocketfarmer.pocketfarm.databinding.ActivityMainBinding
+import com.pocketfarmer.pocketfarm.src.fragment.MyFarmFragment
 import com.pocketfarmer.pocketfarm.src.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,6 +18,9 @@ class MainActivity (override val layoutId: Int = R.layout.activity_main)
             = ViewModelProvider(this).get(MainViewModel::class.java)
 
     override fun initView(savedInstanceState: Bundle?) {
+        if(intent.action == "pocketFarm.fromPay"){
+            supportFragmentManager.beginTransaction().replace(R.id.main_nav_container, MyFarmFragment()).commit()
+        }
         setupBottomNavigationBar()
 
         supportActionBar?.title = ""

@@ -12,11 +12,11 @@ import com.pocketfarmer.pocketfarm.src.adapter.HomeRecyclerAdapter
 import com.pocketfarmer.pocketfarm.src.adapter.ReviewRecyclerAdapter
 import com.pocketfarmer.pocketfarm.src.adapter.TimelineRecyclerAdapter
 import com.pocketfarmer.pocketfarm.src.model.DataBoard
+import com.pocketfarmer.pocketfarm.src.model.DataReservationDetail
 import com.pocketfarmer.pocketfarm.src.model.DataReview
-import com.pocketfarmer.pocketfarm.src.model.DataTimeline
 import com.pocketfarmer.pocketfarm.src.viewmodel.DetailViewModel
 import com.pocketfarmer.pocketfarm.src.viewmodel.HomeViewModel
-import com.pocketfarmer.pocketfarm.src.viewmodel.TimelineViewModel
+import com.pocketfarmer.pocketfarm.src.viewmodel.ReservationDetailViewModel
 import kotlin.math.roundToInt
 
 object BindingAdapter {
@@ -65,7 +65,7 @@ object BindingAdapter {
 
     @BindingAdapter(value = ["timeline", "viewModel"])
     @JvmStatic
-    fun settingReviewAdapter(view: RecyclerView, timeline: List<DataTimeline>?, viewModel: TimelineViewModel) {
+    fun settingReviewAdapter(view: RecyclerView, timeline: List<DataReservationDetail>?, viewModel: ReservationDetailViewModel) {
         view.adapter?.run {
             if (this is TimelineRecyclerAdapter) {
                 if (timeline != null) {

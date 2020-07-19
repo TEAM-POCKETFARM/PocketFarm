@@ -37,4 +37,7 @@ interface RemoteService {
 
     @GET("mypage/reservationAll/{userIdx}")
     fun getReservation(@Path("userIdx")userIdx:Int):Call<ReservationResponseData>
+
+    @GET("mypage/tl/{boardIdx}")
+    fun getReservationDetail(@Path("boardIdx")boardIdx:Int):Call<ReservationDetailResponseData>
 }

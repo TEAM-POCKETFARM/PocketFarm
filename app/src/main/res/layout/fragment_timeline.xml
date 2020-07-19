@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.pocketfarmer.pocketfarm.src.viewmodel.TimelineViewModel" />
+            type="com.pocketfarmer.pocketfarm.src.viewmodel.ReservationDetailViewModel" />
     </data>
 
     <RelativeLayout
@@ -25,7 +25,7 @@
             android:layout_marginTop="50dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             viewModel="@{viewModel}"
-            timeline="@{viewModel.timeline}"/>
+            timeline="@{viewModel.reservationDetail}"/>
 
     </RelativeLayout>
 </layout>
