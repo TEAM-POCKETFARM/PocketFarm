@@ -17,7 +17,7 @@
             android:id="@+id/contents_image"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            bind_img_url="@{item.boardImg}"
+            bind_round_url="@{item.boardImg}"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/contents_title"

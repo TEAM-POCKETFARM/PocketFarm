@@ -1,12 +1,15 @@
 package com.pocketfarmer.pocketfarm.src
 
+import android.net.Uri
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.view.get
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.pocketfarmer.pocketfarm.R
 import com.pocketfarmer.pocketfarm.src.adapter.HomeRecyclerAdapter
 import com.pocketfarmer.pocketfarm.src.adapter.ReviewRecyclerAdapter
@@ -105,6 +108,20 @@ object BindingAdapter {
             .centerCrop()
             .into(view)
     }
+
+    @BindingAdapter("bind_round_url")
+    @JvmStatic
+    fun bindImgUrlRound(view: ImageView, url: String?) {
+        Glide.with(view.context)
+            .load(url)
+            .apply(RequestOptions.bitmapTransform(RoundedCorners(12)))
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .error(R.drawable.edittext_background)
+            .centerCrop()
+            .into(view)
+        view.clipToOutline = true
+    }
+
 
     @BindingAdapter("score")
     @JvmStatic
