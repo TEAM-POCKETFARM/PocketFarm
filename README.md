@@ -10,3 +10,6 @@
 ## 3. 버전
 - minSdkVersion 26
 - targetSdkVersion 29
+
+## 4. 참고
+- 아직 회원가입이 구현되지 않아 테스트시 로그인은 ID: changwoo, PW: a123으로 해주시길 바랍니다.
