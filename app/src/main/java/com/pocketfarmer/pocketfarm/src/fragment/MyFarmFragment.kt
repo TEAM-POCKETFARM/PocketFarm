@@ -23,19 +23,23 @@ class MyFarmFragment(override val layoutId: Int = R.layout.fragment_my_farm)
 
     override fun initView() {
         viewmodel.reservations.observe(this, Observer {
-            binding.myFarmReservationCard1.setOnClickListener { v ->
-                val intent = Intent(activity, ReservationDetailActivity::class.java).apply {
-                    putExtra("boardIdx", it[0].boardIdx)
-                    putExtra("position", 0)
+            if(it.isNotEmpty()){
+                binding.myFarmReservationCard1.setOnClickListener { v ->
+                    val intent = Intent(activity, ReservationDetailActivity::class.java).apply {
+                        putExtra("boardIdx", it[0].boardIdx)
+                        putExtra("position", 0)
+                    }
+                    startActivity(intent)
                 }
-                startActivity(intent)
-            }
-            binding.myFarmReservationCard2.setOnClickListener { v ->
-                val intent = Intent(activity, ReservationDetailActivity::class.java).apply {
-                    putExtra("boardIdx", it[1].boardIdx)
-                    putExtra("position", 1)
+                if(it.size > 1){
+                    binding.myFarmReservationCard2.setOnClickListener { v ->
+                        val intent = Intent(activity, ReservationDetailActivity::class.java).apply {
+                            putExtra("boardIdx", it[1].boardIdx)
+                            putExtra("position", 1)
+                        }
+                        startActivity(intent)
+                    }
                 }
-                startActivity(intent)
             }
         })
     }
