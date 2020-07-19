@@ -16,7 +16,7 @@
             android:id="@+id/pay_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="10dp"
+            android:elevation="3dp"
             android:background="#ffffff"
             app:menu="@menu/menu_toolbar_close"
             app:layout_constraintTop_toTopOf="parent"

@@ -2,6 +2,7 @@ package com.pocketfarmer.pocketfarm.src.fragment
 
 import android.content.Context
 import android.content.Intent
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.pocketfarmer.pocketfarm.src.base.BaseFragment
@@ -20,13 +21,23 @@ class MyFarmFragment(override val layoutId: Int = R.layout.fragment_my_farm)
         return ViewModelProvider(this, MyFarmViewModelFactory(userIdx)).get(MyFarmViewModel::class.java)
     }
 
-
-
     override fun initView() {
-        binding.myFarmReservationCard1.setOnClickListener {
-            val intent = Intent(activity, ReservationDetailActivity::class.java)
-            startActivity(intent)
-        }
+        viewmodel.reservations.observe(this, Observer {
+            binding.myFarmReservationCard1.setOnClickListener { v ->
+                val intent = Intent(activity, ReservationDetailActivity::class.java).apply {
+                    putExtra("reserveIdx", it[0].reserveIdx)
+                    putExtra("position", 0)
+                }
+                startActivity(intent)
+            }
+            binding.myFarmReservationCard2.setOnClickListener { v ->
+                val intent = Intent(activity, ReservationDetailActivity::class.java).apply {
+                    putExtra("reserveIdx", it[1].reserveIdx)
+                    putExtra("position", 1)
+                }
+                startActivity(intent)
+            }
+        })
     }
 
     class MyFarmViewModelFactory(private var userIdx: Int?) : ViewModelProvider.Factory {

@@ -7,6 +7,12 @@
         <variable
             name="viewModel"
             type="com.pocketfarmer.pocketfarm.src.viewmodel.ReservationDetailViewModel" />
+        <variable
+            name="viewModelReservation"
+            type="com.pocketfarmer.pocketfarm.src.viewmodel.MyFarmViewModel" />
+        <variable
+            name="position"
+            type="com.pocketfarmer.pocketfarm.src.activity.ReservationDetailActivity" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +23,7 @@
             android:id="@+id/detail_reservation_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="10dp"
+            android:elevation="3dp"
             android:background="#ffffff">
             <TextView
                 android:layout_width="wrap_content"
@@ -46,7 +52,7 @@
                         android:id="@+id/detail_reservation_user_image"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/farmer_image"
+                        bind_img_url_circle="@{viewModelReservation.reservations[position.position].boardImg}"
                         android:layout_marginTop="27dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +62,7 @@
                         android:id="@+id/detail_reservation_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="지훈이네 경북 의성 사과농장"
+                        android:text="@{viewModelReservation.reservations[position.position].title}"
                         android:textSize="16sp"
                         android:textColor="#333333"
                         android:layout_marginTop="17dp"
@@ -80,7 +86,7 @@
                             android:id="@+id/detail_reservation_percent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0%"
+                            android:text="@{viewModelReservation.progressRate[position.position]}"
                             android:textSize="40sp"
                             android:fontFamily="@font/roboto_medium"
                             android:textColor="#20591d"/>
@@ -116,7 +122,7 @@
                             android:id="@+id/detail_reservation_period"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="60d"
+                            android:text="@{viewModelReservation.remainPeriod[position.position]}"
                             android:textSize="40sp"
                             android:textColor="#20591d"
                             android:fontFamily="@font/roboto_medium"/>

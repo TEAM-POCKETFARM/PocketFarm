@@ -1,13 +1,11 @@
 package com.pocketfarmer.pocketfarm.src.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import com.pocketfarmer.pocketfarm.src.model.DataBoard
+import androidx.lifecycle.ViewModel
 
-class ReservationDetailViewModel(application: Application) : AndroidViewModel(application){
-    lateinit var board: DataBoard
+class ReservationDetailViewModel(reserveIdx: Int) : ViewModel(){
+    val reservationDetail = getReservationDetail(reserveIdx)
 
-    fun setBoardData(board: DataBoard){
-        this.board = board
+    private fun getReservationDetail(reserveIdx: Int){
+
     }
 }

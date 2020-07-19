@@ -1,17 +1,14 @@
 package com.pocketfarmer.pocketfarm.src.viewmodel
 
-import android.app.Application
-import android.util.Log
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import com.pocketfarmer.pocketfarm.NetworkHelper
 import com.pocketfarmer.pocketfarm.src.model.ReservationRequestData
-import com.pocketfarmer.pocketfarm.src.model.UserResponseData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.DecimalFormat
 
-class PayViewModel(application: Application) : AndroidViewModel(application) {
+class PayViewModel: ViewModel() {
 
     fun setReword(price: Int, percent: Double): String = DecimalFormat("###,###")
             .format((price * percent).toInt()).toString()

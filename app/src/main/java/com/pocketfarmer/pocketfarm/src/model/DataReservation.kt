@@ -2,6 +2,7 @@ package com.pocketfarmer.pocketfarm.src.model
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class DataReservation(
     @SerializedName("boardIdx")
@@ -16,4 +17,4 @@ data class DataReservation(
     val reserveIdx: Int,
     @SerializedName("title")
     val title: String
-)
+): Serializable

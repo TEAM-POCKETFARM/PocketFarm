@@ -1,8 +1,7 @@
 package com.pocketfarmer.pocketfarm.src.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.pocketfarmer.pocketfarm.NetworkHelper
 import com.pocketfarmer.pocketfarm.src.model.UserRequestData
 import com.pocketfarmer.pocketfarm.src.model.UserResponseData
@@ -10,7 +9,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SignInViewModel(application: Application) : AndroidViewModel(application) {
+class SignInViewModel: ViewModel() {
     var userId: String = ""
     var password: String = ""
 
